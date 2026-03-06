@@ -1,0 +1,19 @@
+{
+    "movies": "Film",
+    "favorites": "Favorit",
+    "login": "Masuk",
+    "logout": "Keluar",
+    "add_favorite": "Tambah Favorit",
+    "favorited": "Difavoritkan",
+    "loading": "Memuat...",
+    "director": "Sutradara",
+    "actors": "Aktor",
+    "detail": "Detail",
+    "search_placeholder": "Cari judul film...",
+    "year_placeholder": "Tahun",
+    "type_any": "Semua Tipe",
+    "type_movie": "Film",
+    "type_series": "Serial",
+    "type_episode": "Episode",
+    "search_btn": "Cari"
+}

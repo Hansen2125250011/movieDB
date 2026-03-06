@@ -1,0 +1,19 @@
+{
+    "movies": "Movies",
+    "favorites": "Favorites",
+    "login": "Login",
+    "logout": "Logout",
+    "add_favorite": "Add Favorite",
+    "favorited": "Favorited",
+    "loading": "Loading...",
+    "director": "Director",
+    "actors": "Actors",
+    "detail": "Detail",
+    "search_placeholder": "Search movie title...",
+    "year_placeholder": "Year",
+    "type_any": "Any Type",
+    "type_movie": "Movie",
+    "type_series": "Series",
+    "type_episode": "Episode",
+    "search_btn": "Search"
+}

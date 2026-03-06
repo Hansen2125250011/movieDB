@@ -28,3 +28,11 @@ Homestead.json
 .env.production
 .phpactor.json
 auth.json
+
+/.phpunit.cache
+/.fleet
+/.idea
+/.vscode
+
+# Bloated files
+config.zip
