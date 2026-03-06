@@ -1,4 +1,4 @@
-# Flower Advisor - Movie App
+# Movie App
 
 Aplikasi Movie App yang dibangun dengan Laravel 11, menggunakan OMDb API untuk pencarian data film.
 
@@ -47,7 +47,7 @@ Buka file `.env` dan atur konfigurasi database Anda:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=flower_advisor
+DB_DATABASE=movieDB
 DB_USERNAME=root
 DB_PASSWORD=
 ```
@@ -99,8 +99,3 @@ php artisan serve
 Akses aplikasi melalui: [http://127.0.0.1:8000](http://127.0.0.1:8000)
 
 ---
-
-## Akun Uji Coba (Jika sudah menjalankan seeder)
-
-- **Username:** `aldmic`
-- **Password:** `123abc123`
