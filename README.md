@@ -1,68 +1,106 @@
-# movieDB
+# Flower Advisor - Movie App
 
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Aplikasi Movie App yang dibangun dengan Laravel 11, menggunakan OMDb API untuk pencarian data film.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Fitur
 
-## About Laravel
+- **Pencarian Film:** Cari film berdasarkan Judul, Tahun, dan Tipe.
+- **Detail Film:** Informasi lengkap mengenai film yang dipilih.
+- **Sistem Favorit:** Simpan film favorit ke dalam database pengguna.
+- **Autentikasi:** Fitur Registrasi dan Login pengguna.
+- **Multi-bahasa:** Mendukung bahasa Inggris dan Indonesia.
+- **Optimasi UI:** Menggunakan Infinite Scroll dan Lazy Loading untuk gambar.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Prasyarat
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Sebelum menginstal, pastikan lingkungan pengembangan Anda memenuhi syarat berikut:
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- **PHP** >= 8.2
+- **Composer**
+- **Node.js & NPM**
+- **MySQL** atau database engine pilihan Anda
 
-## Learning Laravel
+## Langkah-langkah Instalasi
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Ikuti langkah-langkah di bawah ini untuk menjalankan project setelah melakukan `git pull` atau `git clone`:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### 1. Install Dependency
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Instal semua package PHP dan JavaScript yang dibutuhkan:
 
-## Laravel Sponsors
+```bash
+composer install
+npm install
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 2. Konfigurasi Environment
 
-### Premium Partners
+Salin file `.env.example` menjadi `.env`:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+cp .env.example .env
+```
 
-## Contributing
+Buka file `.env` dan atur konfigurasi database Anda:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=flower_advisor
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Code of Conduct
+Tambahkan juga **OMDb API Key** Anda (Dapatkan di [omdbapi.com](https://www.omdbapi.com/)):
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```env
+OMDB_API_KEY=isi_api_key_di_sini
+```
 
-## Security Vulnerabilities
+### 3. Generate Application Key
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```bash
+php artisan key:generate
+```
 
-## License
+### 4. Migrasi Database
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Pastikan database sudah dibuat di MySQL, lalu jalankan perintah:
+
+```bash
+php artisan migrate
+```
+
+Jika ingin menyertakan data dummy (user tes):
+
+```bash
+php artisan db:seed
+```
+
+### 5. Kompilasi Aset Frontend
+
+```bash
+npm run build
+```
+
+Atau jika ingin menjalankan dalam mode development:
+
+```bash
+npm run dev
+```
+
+### 6. Jalankan Server Lokal
+
+```bash
+php artisan serve
+```
+
+Akses aplikasi melalui: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+---
+
+## Akun Uji Coba (Jika sudah menjalankan seeder)
+
+- **Username:** `aldmic`
+- **Password:** `123abc123`
